@@ -18,6 +18,8 @@ def operate(operator, *args):
         result = args[0]
         for el in args[1:]:
             result /= el
+        if ".0" in str(result):
+            result = round(result)
         return result
 
     if operator == "+":
@@ -30,4 +32,4 @@ def operate(operator, *args):
         return div_nums()
 
 
-print(operate("/", 10, 5))
+print(operate("/", 8, 7))
