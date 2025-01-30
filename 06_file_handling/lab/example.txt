@@ -1,0 +1,6 @@
+Hello from file, Niki!
+
+pwd - present working directory
+
+Hello again!
+Hello again!
