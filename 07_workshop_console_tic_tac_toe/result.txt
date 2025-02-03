@@ -1,0 +1,6 @@
+Niki,6
+Gosho,1
+Misho,1
+Eli,0
+Yanna,0
+new_player,1
