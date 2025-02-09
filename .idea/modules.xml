@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Advanced.iml" filepath="$PROJECT_DIR$/.idea/Advanced.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pythonProject2/.idea/Fundamentals.iml" filepath="$PROJECT_DIR$/../pythonProject2/.idea/Fundamentals.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/Programing/.idea/Programing.iml" filepath="$USER_HOME$/Desktop/Programing/.idea/Programing.iml" />
       <module fileurl="file://$PROJECT_DIR$/../.idea/PycharmProjects.iml" filepath="$PROJECT_DIR$/../.idea/PycharmProjects.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pythonProject/.idea/pythonProject.iml" filepath="$PROJECT_DIR$/../pythonProject/.idea/pythonProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pythonProject1/.idea/pythonProject1.iml" filepath="$PROJECT_DIR$/../pythonProject1/.idea/pythonProject1.iml" />
