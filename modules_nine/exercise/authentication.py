@@ -7,17 +7,17 @@ from string import ascii_uppercase, ascii_lowercase, digits, punctuation
 
 
 def login(username, password):
-    with open("user_credit.txt") as file:
+    with open("db/user_credentials_db.txt") as file:
         data = file.readlines()
         for line in data:
             name, pwd = line.strip().split(", ")
             if name == username and pwd == password:
-                with open("current_user.txt", "w") as f:
+                with open("db/current_user.txt", "w") as f:
                     f.write(name)
                 render_products_screen()
                 return
 
-    render_login_screen(error="Invalid username or password")
+    render_login_screen(error="Invalid username or password!")
 
 
 def render_login_screen(error=None):
@@ -35,27 +35,25 @@ def render_login_screen(error=None):
               command=lambda: login(username.get(), password.get())
               ).grid(row=2, column=0)
 
+    app.bind("<Return>", lambda event: login(username.get(), password.get()))
+
     if error:
         tk.Label(app, text=error).grid(row=3, column=0)
 
 
 def register(**user):
+    # TODO: validations
     if user["username"] == "" or user["password"] == "" or user["first_name"] == "" or user["last_name"] == "":
         render_register_screen(error="All fields are required!")
         return
     if len(user["username"]) < 4:
-        render_register_screen(error="Username must be at least 4 chars long!")
+        render_register_screen(error="Username must be at least 4 chars long.")
         return
     if len(user["password"]) < 4:
-        render_register_screen(error="Password must be at least 4 chars long!")
+        render_register_screen(error="password must be at least 4 chars long.")
         return
-    pass_validation_map = {
-        "upper": False,
-        "lower": False,
-        "digit": False,
-        "special": False
-    }
-    for char in user["username"]:
+    pass_validation_map = {"upper": False, "lower": False, "digit": False, "special": False}
+    for char in user["password"]:
         if char in ascii_uppercase:
             pass_validation_map["upper"] = True
         elif char in ascii_lowercase:
@@ -64,21 +62,23 @@ def register(**user):
             pass_validation_map["digit"] = True
         elif char in punctuation:
             pass_validation_map["special"] = True
-
     if not all(pass_validation_map.values()):
         render_register_screen(
-            error="Password must contain at least 1 uppercase, 1 lowercase, 1 digit and 1 special char!")
+            error="Password must contain at least 1 uppercase, 1 lowercase, i digit and 1 special char!")
+        return
 
     user.update({"products": []})
-    with open("user_credit.txt", "r+", newline="\n") as file:
+    with open("db/user_credentials_db.txt", "r+", newline="\n") as file:
         users = [line.strip().split(", ")[0] for line in file]
         if user["username"] in users:
-            render_register_screen(error="User already exists")
+            render_register_screen(error="User already exists!")
             return
         file.write(f"{user['username']}, {user['password']}\n")
 
-    with open("users.txt", "a", newline="\n") as file:
+    with open("db/users.txt", "a", newline="\n") as file:
         file.write(json.dumps(user) + "\n")
+
+    render_login_screen()
 
 
 def render_register_screen(error=None):
@@ -114,6 +114,7 @@ def render_main_enter_screen():
               bg="green",
               fg="white",
               command=render_login_screen).grid(row=0, column=0)
+
     tk.Button(app,
               text="Register",
               bg="yellow",

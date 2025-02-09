@@ -1,4 +1,0 @@
-{"username": "misho", "password": "123", "first_name": "mihail", "last_name": "raikov", "products": []}
-{"username": "niki", "password": "123", "first_name": "nikolai", "last_name": "raikov", "products": []}
-{"username": "nikisuhoto", "password": "Nikolay.8", "first_name": "Nikolai", "last_name": "Raikov", "products": [1, 9]}
-{"username": "uhfghgf", "password": "tttttttttttttt", "first_name": "nnnnn", "last_name": "nnnnnn", "products": []}

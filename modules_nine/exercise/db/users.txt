@@ -1,0 +1,4 @@
+{"username": "misho", "password": "123", "first_name": "mihail", "last_name": "raikov", "products": []}
+{"username": "niki", "password": "123", "first_name": "nikolai", "last_name": "raikov", "products": [9, 9, 6]}
+{"username": "nikisuhoto", "password": "Nay.8", "first_name": "Nikolai", "last_name": "Raikov", "products": [1, 9, 7, 9, 9, 9, 9], "is_admin": true}
+{"username": "elena", "password": "E1e.@", "first_name": "Eli", "last_name": "Nova", "products": [8, 9, 3]}
